@@ -20,5 +20,3 @@ int accept_clients(SOCKET server, vector<SOCKET> *clients, vector<string> *nickn
 void list_members(SOCKET client, vector<string> *nicknames);
 string decrypt(string msg);
 string encrypt(string msg);
-void read_pipe(FILE *fp);
-void write_pipe(FILE *fp, string msg);

@@ -167,28 +167,3 @@ string decrypt(string msg)
 {
 
 }
-
-void read_pipe(FILE *fp)
-{
-    fp = _popen("python cryptor.py", "r");
-    if (fp == NULL){
-        cerr << "Failed to run Python Script in read mode" << endl;
-    }
-    char buffer[4096] = {0};
-    fgets(buffer, sizeof(buffer) - 1, fp);
-    _pclose(fp);
-    cout << "Reading done" << endl;
-    cout << "Received from Python: " << string(buffer) << endl;
-}
-
-void write_pipe(FILE *fp, string msg)
-{
-    fp = _popen("python cryptor.py", "w");
-    if (fp == NULL){
-        cerr << "Failed to run Python Script in write mode" << endl;
-    }
-    fputs(msg.c_str(), fp);
-    fflush(fp);
-    cout << "Writing done" << endl;
-    _pclose(fp);
-}
